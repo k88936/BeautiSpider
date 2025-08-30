@@ -51,8 +51,7 @@ def process_task(task):
         return f"Task {task.id} failed: {str(e)}"
 
 def main():
-    update_list()
-    
+
     # 使用线程池进行并发处理
     with ThreadPoolExecutor(max_workers=MAX_CONNECTIONS) as executor:
         # 提交所有任务
