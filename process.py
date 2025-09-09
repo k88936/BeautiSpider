@@ -53,7 +53,9 @@ def process_task(task):
 
 def main():
 
+
     # 使用线程池进行并发处理
+    task_pool.auto_fail_tasks()
     with ThreadPoolExecutor(max_workers=MAX_CONNECTIONS) as executor:
         # 提交所有任务
         while True:
