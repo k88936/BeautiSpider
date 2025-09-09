@@ -242,4 +242,4 @@ cython_debug/
 #.idea/
 
 
-**/downloads
+**/downloadsdatabase/data

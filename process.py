@@ -10,6 +10,7 @@ task_pool = TaskPool()
 
 # 限制配置
 MAX_CONNECTIONS = 5  # 最大并发连接数
+BATCH_SIZE = 40
 REQUESTS_PER_MINUTE = 30  # 每分钟最大请求数
 MIN_REQUEST_INTERVAL = 60 / REQUESTS_PER_MINUTE  # 请求间隔时间
 
@@ -56,7 +57,7 @@ def main():
     with ThreadPoolExecutor(max_workers=MAX_CONNECTIONS) as executor:
         # 提交所有任务
         while True:
-            tasks = task_pool.pop_tasks(limit=20)
+            tasks = task_pool.pop_tasks(limit= BATCH_SIZE )
             # 修改: 如果获取到的任务数量为0，则结束循环
             if not tasks:
                 break
