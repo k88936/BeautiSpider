@@ -14,9 +14,9 @@ def update_list():
         result = crawler.crawl_list_page(url)
         print(result)
         for item in result:
-            # if task_pool.has_task(item.id):
-            #     print("updated all")
-            #     return
+            if task_pool.has_task(item.id):
+                print("updated all")
+                return
             task_pool.push_task(item.id, item)
             print("pushed task:" + item.id)
 
