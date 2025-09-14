@@ -1,5 +1,6 @@
 import crawler
 import db
+import update
 from taskPool import TaskPool
 import threading
 import time
@@ -56,6 +57,8 @@ def main():
 
     # 使用线程池进行并发处理
     task_pool.auto_fail_tasks()
+    update.update_list()
+
     with ThreadPoolExecutor(max_workers=MAX_CONNECTIONS) as executor:
         # 提交所有任务
         while True:
